@@ -46,7 +46,10 @@ function Home() {
       </div>
       <a className="home-btn" href="#about">
         <p className="home-btn-text">View More</p>
-        <KeyboardArrowDownRoundedIcon className="home-btn-icon" />
+        <KeyboardArrowDownRoundedIcon
+          className="home-btn-icon"
+          fontSize="inherit"
+        />
       </a>
     </div>
   );

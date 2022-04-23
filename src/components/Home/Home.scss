@@ -40,12 +40,14 @@
   
   &-btn {
     margin-top: 2rem;
-    padding: 0.7rem 2.5rem;
+    padding: 0.5rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     display: flex;
     color: #fff;
     border: #fff 2px solid;
     background-color: rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in;
     
     &:hover {
       border: #ab47bc 2px solid;

@@ -4,15 +4,16 @@
   }
 
   .navbar {
-    padding: 0 3rem;
+    padding: 0 1rem;
 
     &-links {
       position: absolute;
-        top: 50px;
+        top: 0;
         right: 0px;
       
       width: 50%;
-      height: calc(100vh - 50px);
+      height: 100vh;
+      padding-top: 50px;
 
       background-color: #202331;
       flex-direction: column;
@@ -22,7 +23,7 @@
       transform: translateX(100%);
       transition: all 0.5s ease-out;
       
-      & li {
+      li {
         opacity: 0;
         margin: 1.5rem 0;
       }
@@ -38,16 +39,18 @@
     transform: translateX(0%);
   }
 
-  .line-transform .burger-line1{
-    transform: rotate(-45deg) translate(-5px, 5px);
-  }
+  .line-transform {
+    .burger-line1 {
+      transform: rotate(-45deg) translate(-5.2px, 7.5px);
+    }
 
-  .line-transform .burger-line2{
-    opacity: 0;
-  }
+    .burger-line2 {
+      opacity: 0;
+    }
 
-  .line-transform .burger-line3{
-    transform: rotate(45deg) translate(-5px, -5px);
+    .burger-line3 {
+      transform: rotate(45deg) translate(-5.2px, -7.5px);
+    }
   }
   
   @keyframes linkItemFade {

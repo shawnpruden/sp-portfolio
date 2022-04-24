@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { Link } from 'react-scroll';
 
 import './Home.scss';
 
@@ -44,13 +45,20 @@ function Home() {
         </div>
         <p>.</p>
       </div>
-      <a className="home-btn" href="#about">
-        <p className="home-btn-text">View More</p>
+      <Link
+        className="home-btn"
+        activeClass="navbar-active"
+        to="about"
+        spy={true}
+        smooth={true}
+        duration={800}
+      >
+        View More
         <KeyboardArrowDownRoundedIcon
           className="home-btn-icon"
           fontSize="inherit"
         />
-      </a>
+      </Link>
     </div>
   );
 }

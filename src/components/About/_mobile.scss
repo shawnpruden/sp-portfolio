@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+  .about {
+    &-wrapper {
+      grid-template-columns: 1fr;
+
+    }
+  }
+}

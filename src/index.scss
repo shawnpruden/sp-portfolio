@@ -10,9 +10,18 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #F7F5F2;
+  color: #333533;
+  background-color: #fbfaff;
 }
 
 img {
   max-width: 100%;
+}
+
+.under-line {
+  width: 50%;
+  height: 4px;
+  background-color: #ffcb6b;
+  border-radius: 2px;
+  margin: 1rem auto;
 }

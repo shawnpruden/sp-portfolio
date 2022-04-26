@@ -36,10 +36,8 @@ function Skills() {
   ));
   return (
     <section className="skills">
-      <div className="skills-title">
-        <h2>Technical Skills</h2>
-        <div></div>
-      </div>
+      <h3 className="skills-title">Technical Skills</h3>
+
       <ul className="skills-lists">{renderedList}</ul>
     </section>
   );

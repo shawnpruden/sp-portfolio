@@ -2,18 +2,22 @@
 
 .home {
   display: flex;
-  justify-content: center;
-  align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
   font-family: 'Raleway', sans-serif;
+
   height: 100vh;
   position: relative;
-  flex-direction: column;
+
   background: url('../../assets/landing-page-img.jpg') no-repeat center center/cover;
 
   &::before {
     content: '';
     width: 100vw;
     height: 100vh;
+
     position: absolute;
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -23,15 +27,17 @@
   }
   
   &-text {
+    color: #fff;
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #fff;
     
     &-wrapper {
       display: flex;
-      font-size: 3rem;
+
       color: #fff;
+      font-size: 3rem;
+
       width: 38%;
       padding-left: 1rem;
     }
@@ -45,11 +51,14 @@
     font-size: 1.2rem;
 
     display: flex;
+
     border: #fff 2px solid;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.3);
-    transition: all 0.5s ease-in;
+
     cursor: pointer;
+    
+    transition: all 0.5s ease-in;
     
     &:hover {
       color: #ab47bc;

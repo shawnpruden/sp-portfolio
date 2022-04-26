@@ -3,6 +3,7 @@
 .progress-bar {
   display: flex;
     justify-content: center;
+    
   width: 100%;
   
   font-size: 1rem;
@@ -10,8 +11,8 @@
   
   &-wrapper {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+      justify-content: flex-start;
+      align-items: center;
     
     width: 30%;
     
@@ -26,30 +27,33 @@
   
   &-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+      justify-content: flex-start;
+      align-items: center;
     
     font-family: 'Exo 2', sans-serif;
     color: #fff;
-    background-color: #d8d8d8;
     
     width: 90%;
     height: 30px;
+
+    background-color: #d8d8d8;
     border-radius: 5px;
   }
   
   &-grow {
     display: flex;
-    justify-content: center;
-    align-items: center;
+      justify-content: center;
+      align-items: center;
 
     border-radius: 5px;
     background: linear-gradient(to left, #ab47bc, #c792ea);
-    transition: all 1s ease-in-out;
     box-shadow: -2px 1px 3px #c792ea, 2px 1px 3px #ab47bc;
     
     width: 0;
     height: 100%;
+    
     opacity: 0;
+
+    transition: all 1s ease-in-out;
   }
 }

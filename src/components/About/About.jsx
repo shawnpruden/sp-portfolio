@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+  FaAngleDoubleRight,
+  FaBinoculars,
+  FaDog,
+  FaSnowboarding,
+  FaMusic,
+  FaGlobe,
+} from 'react-icons/fa';
 
 import './About.scss';
 import Skills from '../Skills/Skills';
@@ -28,7 +36,7 @@ function About() {
               </p>
             </li>
             <li>
-              <h4 className="about-content-title">Diligent & Progressive</h4>
+              <h4 className="about-content-title">Dedicated & Progressive</h4>
               <p className="about-content-text">
                 Always willing to learn and improve myself.
               </p>
@@ -38,12 +46,31 @@ function About() {
               <p className="about-content-text">Promise made, promise kept.</p>
             </li>
           </ul>
-          <h4 className="about-content-subtitle">What else?</h4>
+          <h4 className="about-content-subtitle">
+            <FaAngleDoubleRight />
+            More about this guy
+          </h4>
           <ul className="about-content-subtext">
-            <li>Like traveling & hiking</li>
-            <li>Dog person</li>
-            <li>Big fan of electronic music</li>
-            <li>Novice snowboarder</li>
+            <li>
+              <FaBinoculars />
+              Like traveling & hiking
+            </li>
+            <li>
+              <FaDog />
+              Dog person
+            </li>
+            <li>
+              <FaMusic />
+              Big fan of electronic music
+            </li>
+            <li>
+              <FaGlobe />
+              Trilingual
+            </li>
+            <li>
+              <FaSnowboarding />
+              Novice snowboarder
+            </li>
           </ul>
         </div>
         <Skills />

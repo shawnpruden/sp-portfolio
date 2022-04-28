@@ -39,6 +39,24 @@ function Skills() {
       <h3 className="skills-title">Technical Skills</h3>
 
       <ul className="skills-lists">{renderedList}</ul>
+      <div className="skills-wrapper">
+        <h4 className="skills-subtitle">What else I can do?</h4>
+        <ul className="skills-others">
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+        </ul>
+        <h4 className="skills-subtitle">What's in my tool box?</h4>
+        <ul className="skill-tools">
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+          <li>Default</li>
+        </ul>
+      </div>
     </section>
   );
 }

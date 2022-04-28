@@ -6,17 +6,19 @@ import './Navbar.scss';
 function Navbar() {
   // * hamburger menu
   const [isActive, setIsActive] = useState(false);
+
   const linkItems = ['home', 'about', 'projects', 'contact'];
   const renderedList = linkItems.map((linkItem, index) => {
     let style = isActive
       ? {
-          animation: `linkItemFade 0.5s ease-out forwards ${index / 2 + 0.2}s`,
+          animation: `linkItemFade 0.5s ease-out forwards ${index / 5 + 0.2}s`,
         }
-      : { opacity: 1 };
+      : {};
+
     return (
       <li style={style} key={index}>
         <Link
-          activeClass="navbar-active"
+          activeClass="highlighted"
           to={linkItem}
           spy={true}
           smooth={true}

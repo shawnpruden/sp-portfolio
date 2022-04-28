@@ -14,13 +14,11 @@ function Home() {
     if (window.pageYOffset >= document.documentElement.clientHeight) {
       setIsDisabled(false);
       setIsActive(true);
-    } else if (window.pageYOffset < document.documentElement.clientHeight) {
-      setIsActive(false);
+    } else {
       setIsDisabled(true);
+      setIsActive(false);
     }
   }, []);
-
-  console.log(window.pageYOffset);
 
   useEffect(() => {
     window.addEventListener('scroll', translateButton);
@@ -38,21 +36,27 @@ function Home() {
           smooth={true}
           duration={800}
           onClick={() => {
-            if (window.pageYOffset >= 280) {
-              setIsDisabled((prevState) => !prevState);
+            if (
+              window.pageYOffset >= 250 &&
+              window.pageYOffset <= document.documentElement.clientHeight
+            ) {
+              setIsDisabled(false);
             }
+
             if (!isActive) {
               window.removeEventListener('scroll', translateButton);
               setTimeout(() => {
                 window.addEventListener('scroll', translateButton);
               }, 1000);
-            } else {
-              window.addEventListener('scroll', translateButton);
             }
 
-            setIsActive((prevState) => !prevState);
+            setIsActive(true);
           }}
-          style={isDisabled ? {} : { transition: 'none' }}
+          style={
+            isDisabled
+              ? {}
+              : { transition: 'background-color 0.5s ease-in-out' }
+          }
         >
           <p
             className={`home-btn-text ${

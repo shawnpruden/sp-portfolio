@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 
 import './Navbar.scss';
@@ -32,17 +32,18 @@ function Navbar() {
 
   // * navbar
   const [isVisible, setIsVisible] = useState(false);
-  const colorNav = () => {
+
+  const toggleNavbar = useCallback(() => {
     if (window.pageYOffset >= document.documentElement.clientHeight) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', colorNav);
-  }, []);
+    window.addEventListener('scroll', toggleNavbar);
+  }, [toggleNavbar]);
 
   return (
     <nav className={`navbar ${isVisible ? 'navbar-visible' : ''}`}>

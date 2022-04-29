@@ -13,6 +13,19 @@
     <title>React App</title>
   </head>
   <body>
+    <form
+      name="portfolio-form"
+      data-netlify="true"
+      data-netlify-recaptcha="true"
+      hidden
+    >
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="subject" type="text" />
+      <textarea name="message"></textarea>
+      <div data-netlify-recaptcha="true"></div>
+    </form>
+
     <div id="root"></div>
   </body>
 </html>

@@ -13,12 +13,7 @@ function Contact() {
       <p className="contact-text">Here is how you can reach me</p>
 
       <div className="contact-form-wrapper">
-        <form
-          name="portfolio-form"
-          method="POST"
-          data-netlify="true"
-          data-netlify-recaptcha="true"
-        >
+        <form name="portfolio-form" method="post">
           <input type="hidden" name="form-name" value="portfolio-form" />
           <input name="name" type="text" placeholder="Name" required />
           <input

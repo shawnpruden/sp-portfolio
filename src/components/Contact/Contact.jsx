@@ -3,10 +3,6 @@ import React from 'react';
 import './Contact.scss';
 
 function Contact() {
-  const sendEmail = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <section id="contact" className="contact">
       <h2 className="title">

@@ -19,6 +19,7 @@ function Contact() {
           data-netlify="true"
           data-netlify-recaptcha="true"
         >
+          <input type="hidden" name="form-name" value="portfolio-form" />
           <input name="name" type="text" placeholder="Name" required />
           <input
             name="email"

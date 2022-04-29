@@ -22,7 +22,6 @@ function Contact() {
           method="POST"
           data-netlify="true"
           data-netlify-recaptcha="true"
-          onSubmit={sendEmail}
         >
           <input name="name" type="text" placeholder="Name" required />
           <input

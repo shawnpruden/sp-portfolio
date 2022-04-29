@@ -3,16 +3,47 @@ import React from 'react';
 import './Contact.scss';
 
 function Contact() {
+  const sendEmail = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <section id="contact">
+    <section id="contact" className="contact">
       <h2 className="title">
         Contact
         <div className="underline"></div>
       </h2>
 
-      <p>Here is how you can reach me</p>
+      <p className="contact-text">Here is how you can reach me</p>
 
-      
+      <div className="contact-form-wrapper">
+        <form
+          name="portfolio-form"
+          method="POST"
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+          onSubmit={sendEmail}
+        >
+          <input name="name" type="text" placeholder="Name" required />
+          <input
+            name="email"
+            type="email"
+            placeholder="Email Address"
+            required
+          />
+          <input name="subject" type="text" placeholder="Subject" />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="8"
+            required
+          ></textarea>
+          <div data-netlify-recaptcha="true"></div>
+          <button className="contact-form-btn" type="submit">
+            Send
+          </button>
+        </form>
+      </div>
     </section>
   );
 }

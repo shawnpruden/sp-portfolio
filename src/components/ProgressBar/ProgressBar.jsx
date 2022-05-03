@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './ProgressBar.scss';
 
-function ProgressBar({ skill }) {
-  const [style, setStyle] = useState({});
-
-  // * need scrolling effect
-  setTimeout(() => {
-    setStyle({ opacity: 1, width: `${skill.progress}%` });
-  }, 3000);
+function ProgressBar({ skill, isActive }) {
+  let style = isActive ? { opacity: 1, width: `${skill.progress}%` } : {};
 
   return (
     <>

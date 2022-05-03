@@ -1,0 +1,21 @@
+@media (max-width: 500px) {
+  .projects {
+    &-text {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    &-gallery {
+      grid-template-columns: 1fr;
+      margin-top: 3rem;
+    }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+  .projects {
+    &-text {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+  }
+}

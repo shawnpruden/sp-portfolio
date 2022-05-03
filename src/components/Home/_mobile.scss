@@ -1,0 +1,43 @@
+@media (max-width: 500px) {
+  .home {
+    &-text {
+      font-size: 2rem;
+    }
+
+    &-text-wrapper {
+      font-size: 2rem;
+
+      width: 100%;
+      min-width: 0;
+
+      padding-left: calc(50vw - 168px);
+
+      & > div {
+        margin-left: 0.5rem !important;
+      }
+    }
+
+    &-btn {
+      padding: 0.5rem 1.5rem;
+      &-text {
+        font-size: 1rem;
+      }
+    }
+
+    &-transformed {
+      &-btn {
+        transform: translateX(calc(50vw - 30px)) translateY(calc(40vh - 10px));
+        padding: 0.3rem;
+        &-text {
+          font-size: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 786px) {
+}
+
+@media (min-width: 787px) and (max-width: 1200px) {
+}

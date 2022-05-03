@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 * {
   padding: 0;
@@ -11,22 +11,24 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #333533;
+  overflow-x: hidden;
 }
 
 .about,
 .projects,
 .contact {
-  padding: 8rem 8rem;
+  padding: 8rem;
 }
 
 h2.title {
   display: inline-block;
 
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 img {
@@ -40,4 +42,52 @@ img {
 
   border-radius: 2px;
   background-color: #ffcb6b;
+}
+
+@media (max-width: 500px) {
+  h2.title {
+    margin-top: 3rem;
+  }
+
+  .about {
+    padding: 3rem 1rem;
+
+    &-content {
+      padding: 0 1rem;
+    }
+  }
+
+  .projects,
+  .contact {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 678px) {
+  .about,
+  .contact {
+    padding: 5rem;
+  }
+
+  .projects {
+    padding: 5rem 1rem;
+  }
+}
+
+@media (min-width: 679px) and (max-width: 900px) {
+  .projects {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .about,
+  .contact {
+    padding: 4rem;
+  }
+
+  .projects {
+    padding: 4rem 1rem;
+  }
 }

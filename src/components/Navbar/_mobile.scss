@@ -8,9 +8,9 @@
 
     &-links {
       position: absolute;
-        top: 0;
-        right: 0px;
-      
+      top: 0;
+      right: 0px;
+
       width: 50%;
       height: 100vh;
       padding-top: 50px;
@@ -22,19 +22,19 @@
 
       transform: translateX(100%);
       transition: all 0.5s ease-out;
-      
+
       li {
         opacity: 0;
         margin: 1.5rem 0;
       }
     }
-    
+
     &-burger {
       cursor: pointer;
       display: block;
     }
   }
-  
+
   .nav-active {
     transform: translateX(0%);
   }
@@ -52,7 +52,7 @@
       transform: rotate(45deg) translate(-5.2px, -7.5px);
     }
   }
-  
+
   @keyframes linkItemFade {
     from {
       opacity: 0;

@@ -11,7 +11,7 @@ function Home() {
   const [isDisabled, setIsDisabled] = useState(true);
 
   const translateButton = useCallback(() => {
-    if (window.pageYOffset >= document.documentElement.clientHeight) {
+    if (window.scrollY >= document.documentElement.clientHeight) {
       setIsDisabled(false);
       setIsActive(true);
     } else {
@@ -55,7 +55,9 @@ function Home() {
           style={
             isDisabled
               ? {}
-              : { transition: 'background-color 0.5s ease-in-out' }
+              : {
+                  transition: 'background-color 0.5s ease-in-out',
+                }
           }
         >
           <p

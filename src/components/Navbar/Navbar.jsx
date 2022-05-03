@@ -8,6 +8,7 @@ function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
   const linkItems = ['home', 'about', 'projects', 'contact'];
+
   const renderedList = linkItems.map((linkItem, index) => {
     let style = isActive
       ? {
@@ -23,6 +24,7 @@ function Navbar() {
           spy={true}
           smooth={true}
           duration={800}
+          onClick={() => setIsActive(false)}
         >
           {linkItem}
         </Link>
@@ -34,7 +36,7 @@ function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleNavbar = useCallback(() => {
-    if (window.pageYOffset >= document.documentElement.clientHeight) {
+    if (window.scrollY >= document.documentElement.clientHeight) {
       setIsVisible(true);
     } else {
       setIsVisible(false);

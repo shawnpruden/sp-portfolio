@@ -8,21 +8,69 @@
 
   .title {
     color: #fff;
+    margin-bottom: 3rem;
   }
 
   &-text {
-    color: #fff;
-    margin: 2rem 0 3rem 0;
+    color: #89ddff;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  &-methods {
+    display: flex;
+
+    margin: 1rem 0;
+
+    color: #676e95;
+
+    h4 {
+      display: flex;
+      align-items: center;
+
+      padding: 0.6rem 1rem;
+      margin: 0.5rem;
+      background: #202331;
+
+      border-radius: 5px;
+      border: transparent 2px solid;
+
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: #eeffff;
+        border: #ab47bc 2px solid;
+        box-shadow: 0 0 5px #ab47bc;
+      }
+
+      svg {
+        font-size: 2rem;
+        margin-right: 0.3rem;
+      }
+    }
   }
 
   .contact-form {
     &-wrapper {
-      padding: 2rem;
+      margin: 0.5rem 20rem;
+
+      .notification {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        color: #676e95;
+
+        border-radius: 5px;
+        border: #676e95 1px solid;
+        box-shadow: 0 0 5px #676e95;
+
+        transition: all 0.5s ease-in-out;
+      }
 
       form {
         display: flex;
         flex-direction: column;
-        width: 450px;
+        min-width: 450px;
       }
 
       input,
@@ -42,7 +90,7 @@
         transition: all 0.5s;
 
         &:hover {
-          border: #c792ea 2px solid;
+          border: #676e95 2px solid;
         }
 
         &:focus {
@@ -54,10 +102,25 @@
           color: #676e95;
         }
       }
+
+      input:-webkit-autofill,
+      textarea:-webkit-autofill {
+        border: #292d3e 2px solid;
+
+        &:hover {
+          border: #676e95 2px solid;
+        }
+
+        &:focus {
+          border: #ab47bc 2px solid;
+          box-shadow: 0 0 5px #ab47bc;
+        }
+      }
     }
 
     &-btn {
-      display: inline-block;
+      display: flex;
+      align-items: center;
       padding: 0.7rem 2rem;
       cursor: pointer;
 
@@ -65,6 +128,7 @@
       align-self: center;
 
       font-size: 1.2rem;
+      font-family: inherit;
       letter-spacing: 1px;
       color: #eeffff;
 
@@ -72,11 +136,18 @@
       border-radius: 5px;
       background-color: #ab47bc;
 
+      opacity: 0.8;
       transition: all 0.5s ease-in-out;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
+      }
+
+      svg {
+        margin-left: 0.3rem;
       }
     }
   }
 }
+
+@import 'mobile';

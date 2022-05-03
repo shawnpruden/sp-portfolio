@@ -22,7 +22,6 @@ function Skills() {
       scrollTrigger: {
         start: 'top 80%',
         trigger: skills,
-        toggleActions: 'restart none none reverse',
         onEnter: () => {
           setTimeout(() => {
             setIsActive(true);
@@ -43,7 +42,6 @@ function Skills() {
       scrollTrigger: {
         start: '60% 80%',
         trigger: skills,
-        toggleActions: 'restart none none reverse',
       },
     });
   }, []);

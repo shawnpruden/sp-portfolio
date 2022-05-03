@@ -29,14 +29,6 @@ function About() {
       scrollTrigger: {
         start: 'top 80%',
         trigger: title,
-        onLeaveBack: () => {
-          gsap.to(title, {
-            delay: 0.5,
-            x: '-100%',
-            opacity: 0,
-          });
-        },
-        toggleActions: 'restart',
       },
     });
 
@@ -49,7 +41,6 @@ function About() {
       scrollTrigger: {
         start: 'top 80%',
         trigger: title,
-        toggleActions: 'restart none none reverse',
       },
     });
 
@@ -62,7 +53,6 @@ function About() {
       scrollTrigger: {
         start: 'top 80%',
         trigger: traits,
-        toggleActions: 'restart none none reverse',
       },
     });
 
@@ -73,7 +63,6 @@ function About() {
       scrollTrigger: {
         start: '55% 80%',
         trigger: traits,
-        toggleActions: 'restart none none reverse',
       },
     });
   }, [extra, underline]);

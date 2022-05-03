@@ -75,7 +75,7 @@ function Contact() {
     gsap.from(underline('.underline'), {
       delay: 0.5,
       duration: 0.5,
-      width: 0,
+      scale: 0,
       opacity: 0,
 
       scrollTrigger: {

@@ -43,7 +43,7 @@ function About() {
     gsap.from(underline('.underline'), {
       delay: 1,
       duration: 0.5,
-      width: 0,
+      scale: 0,
       opacity: 0,
 
       scrollTrigger: {

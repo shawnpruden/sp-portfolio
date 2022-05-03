@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { MdOutlineEmail, MdSmartphone } from 'react-icons/md';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import './Contact.scss';
 
@@ -14,11 +15,14 @@ function Contact() {
     isVisible: 0,
   });
 
+  const recaptchaRef = useRef();
+
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSent({ ...isSent, isVisible: 1 });
+    recaptchaRef.current.execute();
 
     emailjs
       .sendForm(
@@ -125,6 +129,11 @@ function Contact() {
 
       <div className="contact-form-wrapper">
         <form ref={form} onSubmit={sendEmail}>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            size="invisible"
+            sitekey="6LeJisAfAAAAAJiwN-9BebmkNyS4vLE9Tewc83ap"
+          />
           <h4
             className="notification"
             style={{

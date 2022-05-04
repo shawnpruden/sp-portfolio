@@ -101,7 +101,7 @@ function Contact() {
         trigger: contactForm,
       },
     });
-  }, [underline, text]);
+  }, []);
 
   return (
     <section id="contact" className="contact" ref={contactRef}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { MdOutlineEmail, MdSmartphone } from 'react-icons/md';
@@ -46,10 +46,12 @@ function Contact() {
   };
 
   const titleRef = useRef();
-  const underline = gsap.utils.selector(titleRef);
+  // const underline = gsap.utils.selector(titleRef);
+  const underline = useMemo(() => gsap.utils.selector(titleRef), []);
 
   const contactRef = useRef();
-  const text = gsap.utils.selector(contactRef);
+  // const text = gsap.utils.selector(contactRef);
+  const text = useMemo(() => gsap.utils.selector(contactRef), []);
 
   useEffect(() => {
     const title = titleRef.current;
@@ -101,7 +103,7 @@ function Contact() {
         trigger: contactForm,
       },
     });
-  }, []);
+  }, [text, underline]);
 
   return (
     <section id="contact" className="contact" ref={contactRef}>

@@ -27,9 +27,6 @@ function Skills() {
             setIsActive(true);
           }, 500);
         },
-        onLeaveBack: () => {
-          setIsActive(false);
-        },
       },
     });
 

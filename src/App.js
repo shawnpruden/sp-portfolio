@@ -10,7 +10,6 @@ import Footer from './components/Footer/Footer';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-// ScrollTrigger.normalizeScroll(true);
 
 const App = () => {
   return (

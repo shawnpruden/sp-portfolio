@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
 
 import './Skills.scss';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Skills() {
   const [isActive, setIsActive] = useState(false);
@@ -13,32 +14,46 @@ function Skills() {
 
   const toolsRef = useRef();
 
+  const activateProgressBar = useCallback(() => {
+    if (
+      skillsRef.current.getBoundingClientRect().top <
+      document.documentElement.clientHeight - 150
+    ) {
+      setTimeout(() => {
+        setIsActive(true);
+      }, 500);
+    }
+  }, []);
+
   useEffect(() => {
-    const skills = skillsRef.current;
-    gsap.from(skills, {
-      duration: 1,
-      x: '100%',
-      opacity: 0,
-      scrollTrigger: {
-        start: 'top 80%',
-        trigger: skills,
-        onEnter: () => {
-          setTimeout(() => {
-            setIsActive(true);
-          }, 500);
-        },
-      },
-    });
+    window.addEventListener('scroll', activateProgressBar);
+  }, [activateProgressBar]);
 
-    const tools = toolsRef.current;
+  useEffect(() => {
+    ScrollTrigger.matchMedia({
+      '(min-width: 960px)': function () {
+        const skills = skillsRef.current;
+        gsap.from(skills, {
+          duration: 1,
+          x: '100%',
+          opacity: 0,
+          scrollTrigger: {
+            start: 'top 80%',
+            trigger: skills,
+          },
+        });
 
-    gsap.from(tools, {
-      duration: 1,
-      x: '100%',
-      opacity: 0,
-      scrollTrigger: {
-        start: '60% 80%',
-        trigger: skills,
+        const tools = toolsRef.current;
+
+        gsap.from(tools, {
+          duration: 1,
+          x: '100%',
+          opacity: 0,
+          scrollTrigger: {
+            start: '60% 80%',
+            trigger: skills,
+          },
+        });
       },
     });
   }, []);

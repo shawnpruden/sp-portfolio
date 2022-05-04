@@ -11,6 +11,7 @@ import './About.scss';
 import Skills from '../Skills/Skills';
 
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function About() {
   const titleRef = useRef();
@@ -20,49 +21,53 @@ function About() {
   const extra = gsap.utils.selector(traitsRef);
 
   useEffect(() => {
-    const title = titleRef.current;
+    ScrollTrigger.matchMedia({
+      '(min-width: 960px)': function () {
+        const title = titleRef.current;
 
-    gsap.from(title, {
-      duration: 1,
-      x: '-100%',
-      opacity: 0,
-      scrollTrigger: {
-        start: 'top 80%',
-        trigger: title,
-      },
-    });
+        gsap.from(title, {
+          duration: 1,
+          x: '-100%',
+          opacity: 0,
+          scrollTrigger: {
+            start: 'top 80%',
+            trigger: title,
+          },
+        });
 
-    gsap.from(underline('.underline'), {
-      delay: 1,
-      duration: 0.5,
-      scale: 0,
-      opacity: 0,
+        gsap.from(underline('.underline'), {
+          delay: 1,
+          duration: 0.5,
+          scale: 0,
+          opacity: 0,
 
-      scrollTrigger: {
-        start: 'top 80%',
-        trigger: title,
-      },
-    });
+          scrollTrigger: {
+            start: 'top 80%',
+            trigger: title,
+          },
+        });
 
-    const traits = traitsRef.current;
+        const traits = traitsRef.current;
 
-    gsap.from(traits, {
-      duration: 1,
-      x: '-100%',
-      opacity: 0,
-      scrollTrigger: {
-        start: 'top 80%',
-        trigger: traits,
-      },
-    });
+        gsap.from(traits, {
+          duration: 1,
+          x: '-100%',
+          opacity: 0,
+          scrollTrigger: {
+            start: 'top 80%',
+            trigger: traits,
+          },
+        });
 
-    gsap.from(extra('.about-extra'), {
-      duration: 1,
-      x: '-100%',
-      opacity: 0,
-      scrollTrigger: {
-        start: '55% 80%',
-        trigger: traits,
+        gsap.from(extra('.about-extra'), {
+          duration: 1,
+          x: '-100%',
+          opacity: 0,
+          scrollTrigger: {
+            start: '55% 80%',
+            trigger: traits,
+          },
+        });
       },
     });
   }, [extra, underline]);

@@ -6,6 +6,7 @@ import { MdOutlineEmail, MdSmartphone } from 'react-icons/md';
 import './Contact.scss';
 
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 function Contact() {
   const [isSent, setIsSent] = useState({
@@ -46,61 +47,63 @@ function Contact() {
   };
 
   const titleRef = useRef();
-  // const underline = gsap.utils.selector(titleRef);
   const underline = useMemo(() => gsap.utils.selector(titleRef), []);
 
   const contactRef = useRef();
-  // const text = gsap.utils.selector(contactRef);
   const text = useMemo(() => gsap.utils.selector(contactRef), []);
 
   useEffect(() => {
-    const title = titleRef.current;
+    ScrollTrigger.matchMedia({
+      '(min-width: 960px)': function () {
+        const title = titleRef.current;
 
-    gsap.from(title, {
-      duration: 0.5,
-      scale: 0.2,
-      opacity: 0,
-      scrollTrigger: {
-        start: '-80 80%',
-        trigger: title,
-      },
-    });
+        gsap.from(title, {
+          duration: 0.5,
+          scale: 0.2,
+          opacity: 0,
+          scrollTrigger: {
+            start: '-80 80%',
+            trigger: title,
+          },
+        });
 
-    gsap.from(underline('.underline'), {
-      delay: 0.5,
-      duration: 0.5,
-      scale: 0,
-      opacity: 0,
+        gsap.from(underline('.underline'), {
+          delay: 0.5,
+          duration: 0.5,
+          scale: 0,
+          opacity: 0,
 
-      scrollTrigger: {
-        start: '-80 80%',
-        trigger: title,
-      },
-    });
+          scrollTrigger: {
+            start: '-80 80%',
+            trigger: title,
+          },
+        });
 
-    gsap.from(text('.contact-text'), {
-      duration: 1,
-      scale: 1.2,
-      opacity: 0,
-      stagger: 0.5,
+        gsap.from(text('.contact-text'), {
+          duration: 1,
+          scale: 1.2,
+          opacity: 0,
+          stagger: 0.5,
 
-      scrollTrigger: {
-        start: '30 80%',
-        trigger: title,
-      },
-    });
+          scrollTrigger: {
+            start: '30 80%',
+            trigger: title,
+          },
+        });
 
-    const contactForm = form.current;
+        const contactForm = form.current;
 
-    gsap.from(contactForm, {
-      delay: 0.5,
-      duration: 1,
-      y: 50,
-      opacity: 0,
+        gsap.from(contactForm, {
+          delay: 0.5,
+          duration: 1,
+          y: 50,
+          opacity: 0,
 
-      scrollTrigger: {
-        start: '-150 80%',
-        trigger: contactForm,
+          scrollTrigger: {
+            start: '-150 80%',
+            trigger: contactForm,
+          },
+        });
       },
     });
   }, [text, underline]);

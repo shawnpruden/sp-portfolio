@@ -64,6 +64,16 @@ function Contact() {
           scrollTrigger: {
             start: '-80 80%',
             trigger: title,
+            toggleActions: 'restart none none none',
+
+            onLeaveBack: () => {
+              gsap.to(title, {
+                delay: 0.5,
+                duration: 0.5,
+                scale: 0.2,
+                opacity: 0,
+              });
+            },
           },
         });
 
@@ -71,11 +81,11 @@ function Contact() {
           delay: 0.5,
           duration: 0.5,
           scale: 0,
-          opacity: 0,
 
           scrollTrigger: {
             start: '-80 80%',
             trigger: title,
+            toggleActions: 'restart none none reverse',
           },
         });
 
@@ -88,6 +98,7 @@ function Contact() {
           scrollTrigger: {
             start: '30 80%',
             trigger: title,
+            toggleActions: 'restart none none reverse',
           },
         });
 
@@ -102,6 +113,7 @@ function Contact() {
           scrollTrigger: {
             start: '-150 80%',
             trigger: contactForm,
+            toggleActions: 'restart none none reverse',
           },
         });
       },

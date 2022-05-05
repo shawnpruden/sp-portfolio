@@ -19,14 +19,16 @@ function Skills() {
       skillsRef.current.getBoundingClientRect().top <
       document.documentElement.clientHeight - 150
     ) {
-      setTimeout(() => {
-        setIsActive(true);
-      }, 500);
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', activateProgressBar);
+    if (document.documentElement.clientWidth < 959) {
+      window.addEventListener('scroll', activateProgressBar);
+    }
   }, [activateProgressBar]);
 
   useEffect(() => {
@@ -40,6 +42,15 @@ function Skills() {
           scrollTrigger: {
             start: 'top 80%',
             trigger: skills,
+            toggleActions: 'restart none none reverse',
+            onEnter: () => {
+              setTimeout(() => {
+                setIsActive(true);
+              }, 500);
+            },
+            onLeaveBack: () => {
+              setIsActive(false);
+            },
           },
         });
 
@@ -52,6 +63,7 @@ function Skills() {
           scrollTrigger: {
             start: '60% 80%',
             trigger: skills,
+            toggleActions: 'restart none none reverse',
           },
         });
       },

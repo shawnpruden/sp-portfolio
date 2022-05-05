@@ -28,7 +28,7 @@ function Projects() {
           scrollTrigger: {
             start: 'top 80%',
             trigger: galleryRef.current,
-            toggleActions: 'play complete none none',
+            toggleActions: 'restart complete none reverse',
           },
         });
 
@@ -36,11 +36,21 @@ function Projects() {
 
         gsap.from(title, {
           duration: 0.5,
-          y: 50,
+          y: 100,
           opacity: 0,
           scrollTrigger: {
             start: '-50 80%',
             trigger: title,
+            toggleActions: 'restart none none none',
+
+            onLeaveBack: () => {
+              gsap.to(title, {
+                delay: 0.5,
+                duration: 0.5,
+                y: 100,
+                opacity: 0,
+              });
+            },
           },
         });
 
@@ -48,11 +58,11 @@ function Projects() {
           delay: 0.5,
           duration: 0.5,
           scale: 0,
-          opacity: 0,
 
           scrollTrigger: {
             start: '-50 80%',
             trigger: title,
+            toggleActions: 'restart none none reverse',
           },
         });
 
@@ -66,6 +76,7 @@ function Projects() {
           scrollTrigger: {
             start: '-50 80%',
             trigger: title,
+            toggleActions: 'restart none none reverse',
           },
         });
       },

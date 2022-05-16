@@ -6,6 +6,8 @@
     }
     &-gallery {
       grid-template-columns: 1fr;
+      gap: 1rem;
+
       margin-top: 3rem;
     }
   }

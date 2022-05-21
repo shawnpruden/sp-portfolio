@@ -23,10 +23,10 @@ function Contact() {
 
     emailjs
       .sendForm(
-        'service_c30p4mr',
-        'template_1a2kkz8',
+        'service_nrles4r',
+        'template_1k0n2jv',
         form.current,
-        'RtNtT5MR2Q-MuacDU'
+        'np3S3OKPAKKpckDlZ'
       )
       .then(
         () => {
@@ -135,7 +135,7 @@ function Contact() {
           <MdSmartphone /> (778)-227-8732
         </h4>
         <h4>
-          <MdOutlineEmail /> dev.shawnpruden@gmail.com
+          <MdOutlineEmail /> dev.shawn@yahoo.com
         </h4>
       </div>
       <p className="contact-text">Or send me a message.</p>

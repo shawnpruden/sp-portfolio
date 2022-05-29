@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const App = () => {
   useEffect(() => {
     window.addEventListener('resize', () => window.location.reload());
-  });
+  }, []);
 
   return (
     <>

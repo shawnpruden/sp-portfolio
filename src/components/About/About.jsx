@@ -47,7 +47,7 @@ function About() {
         });
 
         gsap.from(underline('.underline'), {
-          delay: 1,
+          delay: 0.8,
           duration: 0.5,
           scale: 0,
 
@@ -61,7 +61,7 @@ function About() {
         const traits = traitsRef.current;
 
         gsap.from(traits, {
-          delay: 1.4,
+          delay: 1.2,
           duration: 0.5,
           x: '-100%',
           opacity: 0,

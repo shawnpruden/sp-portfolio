@@ -36,7 +36,7 @@ function Skills() {
       '(min-width: 960px)': function () {
         const skills = skillsRef.current;
         gsap.from(skills, {
-          delay: 1.4,
+          delay: 1.2,
           duration: 0.5,
           x: '100%',
           opacity: 0,
@@ -47,7 +47,7 @@ function Skills() {
             onEnter: () => {
               setTimeout(() => {
                 setIsActive(true);
-              }, 1800);
+              }, 1500);
             },
             onLeaveBack: () => {
               setIsActive(false);

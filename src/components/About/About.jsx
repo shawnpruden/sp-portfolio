@@ -26,7 +26,8 @@ function About() {
         const title = titleRef.current;
 
         gsap.from(title, {
-          duration: 1,
+          delay: 0.5,
+          duration: 0.5,
           x: '-100%',
           opacity: 0,
           scrollTrigger: {
@@ -60,7 +61,8 @@ function About() {
         const traits = traitsRef.current;
 
         gsap.from(traits, {
-          duration: 1,
+          delay: 1.4,
+          duration: 0.5,
           x: '-100%',
           opacity: 0,
           scrollTrigger: {
@@ -71,7 +73,7 @@ function About() {
         });
 
         gsap.from(extra('.about-extra'), {
-          duration: 1,
+          duration: 0.5,
           x: '-100%',
           opacity: 0,
           scrollTrigger: {

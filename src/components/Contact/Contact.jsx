@@ -51,6 +51,7 @@ function Contact() {
 
   const contactRef = useRef();
   const text = useMemo(() => gsap.utils.selector(contactRef), []);
+  const methods = useMemo(() => gsap.utils.selector(contactRef), []);
 
   useEffect(() => {
     ScrollTrigger.matchMedia({
@@ -90,13 +91,26 @@ function Contact() {
         });
 
         gsap.from(text('.contact-text'), {
-          duration: 1,
+          delay: 1,
+          duration: 0.5,
           scale: 1.2,
           opacity: 0,
-          stagger: 0.5,
+          stagger: 1,
 
           scrollTrigger: {
-            start: '30 80%',
+            start: '-80 80%',
+            trigger: title,
+            toggleActions: 'restart none none reverse',
+          },
+        });
+
+        gsap.from(methods('.contact-methods'), {
+          delay: 1.5,
+          duration: 0.5,
+          opacity: 0,
+
+          scrollTrigger: {
+            start: '-80 80%',
             trigger: title,
             toggleActions: 'restart none none reverse',
           },
@@ -105,20 +119,20 @@ function Contact() {
         const contactForm = form.current;
 
         gsap.from(contactForm, {
-          delay: 0.5,
-          duration: 1,
+          delay: 2,
+          duration: 0.5,
           y: 50,
           opacity: 0,
 
           scrollTrigger: {
-            start: '-150 80%',
-            trigger: contactForm,
+            start: '-80 80%',
+            trigger: title,
             toggleActions: 'restart none none reverse',
           },
         });
       },
     });
-  }, [text, underline]);
+  }, [underline, text, methods]);
 
   return (
     <section id="contact" className="contact" ref={contactRef}>

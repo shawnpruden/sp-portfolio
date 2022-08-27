@@ -10,7 +10,7 @@ function Navbar() {
   const linkItems = ['home', 'about', 'projects', 'contact'];
 
   const renderedList = linkItems.map((linkItem, index) => {
-    let style = isActive
+    const style = isActive
       ? {
           animation: `linkItemFade 0.5s ease-out forwards ${index / 5 + 0.2}s`,
         }
@@ -40,6 +40,8 @@ function Navbar() {
       setIsVisible(true);
     } else {
       setIsVisible(false);
+
+      setIsActive(false);
     }
   }, []);
 

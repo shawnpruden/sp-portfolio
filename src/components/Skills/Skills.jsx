@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
 
 import './Skills.scss';
 import ProgressBar from '../ProgressBar/ProgressBar';
@@ -7,12 +6,13 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { primary, data } from './data';
+import Badge from '../Badge/Badge';
+
 function Skills() {
   const [isActive, setIsActive] = useState(false);
 
   const skillsRef = useRef();
-
-  const toolsRef = useRef();
 
   const activateProgressBar = useCallback(() => {
     if (
@@ -32,109 +32,57 @@ function Skills() {
   }, [activateProgressBar]);
 
   useEffect(() => {
+    const skills = skillsRef.current;
+
+    ScrollTrigger.saveStyles([skills]);
+
     ScrollTrigger.matchMedia({
       '(min-width: 960px)': function () {
-        const skills = skillsRef.current;
         gsap.from(skills, {
           delay: 1.2,
           duration: 0.5,
-          x: '100%',
+
+          x: '50%',
           opacity: 0,
+
+          ease: 'power3.out',
+
           scrollTrigger: {
             start: 'top 80%',
             trigger: skills,
             toggleActions: 'restart none none reverse',
+
             onEnter: () => {
               setTimeout(() => {
                 setIsActive(true);
               }, 1500);
             },
+
             onLeaveBack: () => {
               setIsActive(false);
             },
           },
         });
-
-        const tools = toolsRef.current;
-
-        gsap.from(tools, {
-          duration: 0.5,
-          x: '100%',
-          opacity: 0,
-          scrollTrigger: {
-            start: '60% 80%',
-            trigger: skills,
-            toggleActions: 'restart none none reverse',
-          },
-        });
       },
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const skills = [
-    {
-      title: 'HTML',
-      icon: <FaHtml5 style={{ color: '#f78c6c' }} />,
-      progress: 90,
-    },
-
-    {
-      title: 'CSS',
-      icon: <FaCss3Alt style={{ color: '#82aaff' }} />,
-      progress: 85,
-    },
-    {
-      title: 'Javascript',
-      icon: <FaJsSquare style={{ color: '#ffcb6b' }} />,
-      progress: 80,
-    },
-    {
-      title: 'React',
-      icon: <FaReact style={{ color: '#89ddff' }} />,
-      progress: 70,
-    },
-    {
-      title: 'React',
-      icon: <FaReact style={{ color: '#89ddff' }} />,
-      progress: 70,
-    },
-    {
-      title: 'React',
-      icon: <FaReact style={{ color: '#89ddff' }} />,
-      progress: 70,
-    },
-  ];
-
-  const renderedList = skills.map((skill, index) => (
-    <li key={index}>
-      <ProgressBar skill={skill} isActive={isActive} />
-    </li>
-  ));
 
   return (
     <section className="skills">
       <div ref={skillsRef}>
-        <h3 className="skills-title">Technical Skills</h3>
+        <h3 className="subtitle">Technical Skills</h3>
 
-        <ul className="skills-lists">{renderedList}</ul>
-        <div className="skills-wrapper" ref={toolsRef}>
-          <h4 className="skills-subtitle">What else I can do?</h4>
-          <ul className="skills-others">
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-          </ul>
-          <h4 className="skills-subtitle">What's in my tool box?</h4>
-          <ul className="skill-tools">
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-            <li>Default</li>
-          </ul>
-        </div>
+        <ul className="skills-lists">
+          {primary.map((skill, index) => (
+            <li key={index}>
+              <ProgressBar skill={skill} isActive={isActive} index={index} />
+            </li>
+          ))}
+        </ul>
+
+        <Badge type="text" title="React Ecosystem" data={data} />
       </div>
     </section>
   );

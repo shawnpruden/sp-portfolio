@@ -5,35 +5,22 @@ import Card from '../Card/Card';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { data } from './data';
 
 function Projects() {
   const titleRef = useRef();
-  const underline = gsap.utils.selector(titleRef);
-
-  const galleryRef = useRef();
-  const cards = gsap.utils.selector(galleryRef);
-
   const textRef = useRef();
 
+  const underline = gsap.utils.selector(titleRef);
+
   useEffect(() => {
+    const title = titleRef.current;
+    const text = textRef.current;
+
+    ScrollTrigger.saveStyles([title, underline('.underline'), text]);
+
     ScrollTrigger.matchMedia({
       '(min-width: 960px)': function () {
-        gsap.from(cards('.card'), {
-          duration: 1.2,
-          y: 500,
-          opacity: 0,
-          scale: 0.5,
-          stagger: { amount: 2 },
-          ease: 'power4.out',
-          scrollTrigger: {
-            start: 'top 80%',
-            trigger: galleryRef.current,
-            toggleActions: 'restart complete none reverse',
-          },
-        });
-
-        const title = titleRef.current;
-
         gsap.from(title, {
           duration: 0.5,
           y: 100,
@@ -66,8 +53,6 @@ function Projects() {
           },
         });
 
-        const text = textRef.current;
-
         gsap.from(text, {
           delay: 1,
           duration: 1,
@@ -81,7 +66,9 @@ function Projects() {
         });
       },
     });
-  }, [cards, underline]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="projects" className="projects">
@@ -92,17 +79,11 @@ function Projects() {
       <h4 className="projects-text" ref={textRef}>
         Pleasure in the job puts perfection in the work.
       </h4>
-      <div className="projects-gallery" ref={galleryRef}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <ul className="projects-gallery">
+        {data.map((item, index) => (
+          <Card key={index} item={item} index={index} />
+        ))}
+      </ul>
     </section>
   );
 }

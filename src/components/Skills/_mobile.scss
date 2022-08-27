@@ -1,10 +1,26 @@
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .skills {
     padding-left: 0;
+    margin-top: 6rem;
+
     border-left: none;
 
-    &-title {
-      margin-top: 5rem;
+    &-lists {
+      height: unset;
+      padding-right: 1rem;
+    }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 1080px) {
+  .skills {
+    padding-left: 0;
+    margin-top: 8rem;
+
+    border-left: none;
+
+    &-lists {
+      height: unset;
     }
   }
 }

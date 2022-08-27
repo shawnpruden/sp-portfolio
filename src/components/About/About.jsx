@@ -1,35 +1,35 @@
 import React, { useEffect, useRef } from 'react';
-import {
-  FaBinoculars,
-  FaDog,
-  FaSnowboarding,
-  FaMusic,
-  FaGlobe,
-} from 'react-icons/fa';
-
-import './About.scss';
-import Skills from '../Skills/Skills';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import './About.scss';
+import { data } from './data';
+
+import Skills from '../Skills/Skills';
+import Badge from '../Badge/Badge';
+
 function About() {
   const titleRef = useRef();
+  const traitsRef = useRef();
+
   const underline = gsap.utils.selector(titleRef);
 
-  const traitsRef = useRef();
-  const extra = gsap.utils.selector(traitsRef);
-
   useEffect(() => {
+    const traits = traitsRef.current;
+    const title = titleRef.current;
+
+    ScrollTrigger.saveStyles([title, underline('.underline'), traits]);
+
     ScrollTrigger.matchMedia({
       '(min-width: 960px)': function () {
-        const title = titleRef.current;
-
         gsap.from(title, {
           delay: 0.5,
           duration: 0.5,
-          x: '-100%',
+
+          x: '-50%',
           opacity: 0,
+
           scrollTrigger: {
             start: 'top 80%',
             trigger: title,
@@ -39,7 +39,7 @@ function About() {
               gsap.to(title, {
                 delay: 0.5,
                 duration: 1,
-                x: '-100%',
+                x: '-50%',
                 opacity: 0,
               });
             },
@@ -48,6 +48,7 @@ function About() {
 
         gsap.from(underline('.underline'), {
           delay: 0.8,
+
           duration: 0.5,
           scale: 0,
 
@@ -58,33 +59,26 @@ function About() {
           },
         });
 
-        const traits = traitsRef.current;
-
         gsap.from(traits, {
           delay: 1.2,
+
           duration: 0.5,
-          x: '-100%',
+          x: '-50%',
           opacity: 0,
+
+          ease: 'power3.out',
+
           scrollTrigger: {
             start: 'top 80%',
             trigger: traits,
             toggleActions: 'restart none none reverse',
           },
         });
-
-        gsap.from(extra('.about-extra'), {
-          duration: 0.5,
-          x: '-100%',
-          opacity: 0,
-          scrollTrigger: {
-            start: '55% 80%',
-            trigger: traits,
-            toggleActions: 'restart none none reverse',
-          },
-        });
       },
     });
-  }, [extra, underline]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="about" className="about">
@@ -95,64 +89,40 @@ function About() {
       <div className="about-wrapper">
         <div className="traits" ref={traitsRef}>
           <div className="about-content">
-            <h3 className="about-title">Character Traits</h3>
+            <h3 className="subtitle">Character Traits</h3>
             <ul>
               <li>
-                <h4 className="about-content-title">Passionate & Motivated</h4>
-                <p className="about-content-text">
-                  Keen on coding and building website & web application.
-                </p>
+                <h4>Passionate & Motivated</h4>
+                <p>Keen on coding and building website & web application.</p>
               </li>
+
               <li>
-                <h4 className="about-content-title">
-                  Result-driven & Persistent
-                </h4>
-                <p className="about-content-text">
+                <h4>Result-driven & Persistent</h4>
+                <p>
                   Never give up until the desired outcome has been achieved.
                 </p>
               </li>
+
               <li>
-                <h4 className="about-content-title">Dedicated & Progressive</h4>
-                <p className="about-content-text">
-                  Always willing to learn and improve myself.
+                <h4>Pragmatic & Diligent</h4>
+                <p>See problems and challenges as opportunities to grow.</p>
+              </li>
+
+              <li>
+                <h4>Dedicated & Progressive</h4>
+                <p>
+                  Always willing to learn and improve what has been learned.
                 </p>
               </li>
+
               <li>
-                <h4 className="about-content-title">
-                  Trustworthy & Responsible
-                </h4>
-                <p className="about-content-text">
-                  Promise made, promise kept.
-                </p>
+                <h4>Trustworthy & Responsible</h4>
+                <p>Promise made, promise kept.</p>
               </li>
             </ul>
           </div>
 
-          <div className="about-extra">
-            <h4 className="about-extra-title">More about this guy</h4>
-            <ul className="about-extra-text">
-              <li>
-                <FaBinoculars />
-                Like traveling & hiking
-              </li>
-              <li>
-                <FaDog />
-                Dog person
-              </li>
-              <li>
-                <FaMusic />
-                Big fan of electronic music
-              </li>
-              <li>
-                <FaGlobe />
-                Trilingual
-              </li>
-              <li>
-                <FaSnowboarding />
-                Novice snowboarder
-              </li>
-            </ul>
-          </div>
+          <Badge type="image" title="Random Facts" data={data} />
         </div>
         <Skills />
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment } from 'react';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -12,19 +12,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  useEffect(() => {
-    window.addEventListener('resize', () => window.location.reload());
-  }, []);
-
   return (
-    <>
+    <Fragment>
       <Navbar />
       <Home />
       <About />
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

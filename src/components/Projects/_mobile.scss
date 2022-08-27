@@ -1,23 +1,35 @@
-@media (max-width: 500px) {
+@media (max-width: 1080px) {
   .projects {
     &-text {
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      display: none;
     }
-    &-gallery {
-      grid-template-columns: 1fr;
-      gap: 1rem;
 
-      margin-top: 3rem;
+    &-gallery {
+      & > li:nth-child(odd),
+      & > li:nth-child(even) {
+        margin: unset;
+      }
+
+      & > li:not(li:last-child) {
+        margin-bottom: 8rem;
+      }
     }
   }
 }
 
-@media (min-width: 501px) and (max-width: 700px) {
+@media (min-width: 501px) and (max-width: 1080px) {
   .projects {
     &-text {
-      font-size: 1.2rem;
+      display: unset;
       letter-spacing: 1px;
+    }
+
+    &-gallery {
+      margin-top: 10rem;
+
+      & > li:not(li:last-child) {
+        margin-bottom: 10rem;
+      }
     }
   }
 }

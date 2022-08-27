@@ -72,8 +72,8 @@
       padding 0.8s ease-in-out, background-color 0.8s ease-in-out;
 
     &:hover {
-      border: #ab47bc 2px solid;
-      box-shadow: 0px 0px 10px #ab47bc;
+      border: var(--color-purple) 2px solid;
+      box-shadow: 0px 0px 10px var(--color-purple);
     }
 
     // > 0.8s for transforming back slowly
@@ -97,11 +97,11 @@
     }
 
     &:hover &-text {
-      color: #ab47bc;
+      color: var(--color-purple);
     }
 
     &:hover &-icon {
-      color: #ab47bc;
+      color: var(--color-purple);
     }
   }
 
@@ -123,7 +123,7 @@
       &:hover {
         border: #fff 2px solid;
         box-shadow: none;
-        background-color: rgba($color: #ab47bc, $alpha: 1);
+        background-color: rgba($color: var(--color-purple), $alpha: 1);
       }
 
       &-text {

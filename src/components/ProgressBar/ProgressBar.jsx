@@ -2,19 +2,33 @@ import React from 'react';
 
 import './ProgressBar.scss';
 
-function ProgressBar({ skill, isActive }) {
-  let style = isActive ? { opacity: 1, width: `${skill.progress}%` } : {};
+function ProgressBar({ skill: { progress, title, icon }, isActive, index }) {
+  const style = isActive
+    ? {
+        opacity: 1,
+        width: `${isNaN(progress) ? 100 : progress}%`,
+        transitionDelay: `${index / 20}s`,
+      }
+    : {};
 
   return (
     <>
       <div className="progress-bar">
         <div className="progress-bar-wrapper">
-          {skill.icon}
-          <p className="progress-bar-title">{skill.title}</p>
+          <div className="progress-bar-icon">
+            <img src={icon} alt={title} />
+          </div>
+          <p className="progress-bar-title">{title}</p>
         </div>
         <div className="progress-bar-container">
-          <div className="progress-bar-grow" style={style}>
-            {skill.progress}%
+          <div
+            className={`progress-bar-grow ${
+              isNaN(progress) ? 'learning' : 'learned'
+            }`}
+            style={style}
+          >
+            {progress}
+            {isNaN(progress) ? '...' : '%'}
           </div>
         </div>
       </div>

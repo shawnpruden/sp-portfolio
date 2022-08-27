@@ -39,8 +39,8 @@
 
       &:hover {
         color: #eeffff;
-        border: #ab47bc 2px solid;
-        box-shadow: 0 0 5px #ab47bc;
+        border: var(--color-purple) 2px solid;
+        box-shadow: 0 0 5px var(--color-purple);
       }
 
       svg {
@@ -94,8 +94,8 @@
         }
 
         &:focus {
-          border: #ab47bc 2px solid;
-          box-shadow: 0 0 5px #ab47bc;
+          border: var(--color-purple) 2px solid;
+          box-shadow: 0 0 5px var(--color-purple);
         }
 
         &::placeholder {
@@ -112,8 +112,8 @@
         }
 
         &:focus {
-          border: #ab47bc 2px solid;
-          box-shadow: 0 0 5px #ab47bc;
+          border: var(--color-purple) 2px solid;
+          box-shadow: 0 0 5px var(--color-purple);
         }
       }
     }
@@ -134,7 +134,7 @@
 
       border: none;
       border-radius: 5px;
-      background-color: #ab47bc;
+      background-color: var(--color-purple);
 
       opacity: 0.8;
       transition: all 0.5s ease-in-out;

@@ -54,10 +54,19 @@ function Contact() {
   const methods = useMemo(() => gsap.utils.selector(contactRef), []);
 
   useEffect(() => {
+    const title = titleRef.current;
+    const contactForm = form.current;
+
+    ScrollTrigger.saveStyles([
+      title,
+      underline('.underline'),
+      text('.contact-text'),
+      methods('.contact-methods'),
+      contactForm,
+    ]);
+
     ScrollTrigger.matchMedia({
       '(min-width: 960px)': function () {
-        const title = titleRef.current;
-
         gsap.from(title, {
           duration: 0.5,
           scale: 0.2,
@@ -116,8 +125,6 @@ function Contact() {
           },
         });
 
-        const contactForm = form.current;
-
         gsap.from(contactForm, {
           delay: 2,
           duration: 0.5,
@@ -132,7 +139,9 @@ function Contact() {
         });
       },
     });
-  }, [underline, text, methods]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="contact" className="contact" ref={contactRef}>

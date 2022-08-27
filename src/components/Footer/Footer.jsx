@@ -24,7 +24,7 @@ function Footer() {
         </li>
       </ul>
       <p className="footer-text">
-        Copyright &copy; 2022 <span>Shawn Pruden</span>
+        Copyright &copy; {new Date().getFullYear()} <span>Shawn Pruden</span>
       </p>
     </section>
   );

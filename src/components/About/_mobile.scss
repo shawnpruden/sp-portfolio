@@ -13,28 +13,24 @@
     }
 
     .traits {
-      padding: 0 1rem;
+      padding: 0;
     }
 
     &-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      &-text {
-        text-indent: 0;
-        font-size: 1.2rem;
+      ul {
+        height: unset;
+        margin-left: 1rem;
+        padding-right: 1rem;
       }
-    }
 
-    &-extra {
-      display: flex;
-      flex-direction: column;
+      p {
+        text-indent: 0;
+      }
     }
   }
 }
 
-@media (min-width: 501px) and (max-width: 900px) {
+@media (min-width: 501px) and (max-width: 1080px) {
   .about {
     &-wrapper {
       grid-template-columns: 1fr;
@@ -49,22 +45,26 @@
       flex-direction: column;
       align-items: center;
 
-      &-text {
-        text-indent: 0;
+      ul {
+        height: unset;
       }
-    }
 
-    &-extra {
-      display: flex;
-      flex-direction: column;
+      h4 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        text-indent: 1rem;
+      }
     }
   }
 }
 
-@media (min-width: 901px) and (max-width: 1000px) {
+@media (min-width: 1081px) and (max-width: 1300px) {
   .about {
     &-content {
-      &-text {
+      p {
         text-indent: 0;
       }
     }

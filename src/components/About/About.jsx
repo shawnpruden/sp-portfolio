@@ -86,10 +86,12 @@ function About() {
         About
         <div className="underline"></div>
       </h2>
+
       <div className="about-wrapper">
         <div className="traits" ref={traitsRef}>
           <div className="about-content">
             <h3 className="subtitle">Character Traits</h3>
+
             <ul>
               <li>
                 <h4>Passionate & Motivated</h4>
@@ -124,6 +126,7 @@ function About() {
 
           <Badge type="image" title="Random Facts" data={data} />
         </div>
+
         <Skills />
       </div>
     </section>

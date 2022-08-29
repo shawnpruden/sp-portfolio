@@ -9,15 +9,15 @@ import { data } from './data';
 
 function Projects() {
   const titleRef = useRef();
-  const textRef = useRef();
+  const sloganRef = useRef();
 
   const underline = gsap.utils.selector(titleRef);
 
   useEffect(() => {
     const title = titleRef.current;
-    const text = textRef.current;
+    const slogan = sloganRef.current;
 
-    ScrollTrigger.saveStyles([title, underline('.underline'), text]);
+    ScrollTrigger.saveStyles([title, underline('.underline'), slogan]);
 
     ScrollTrigger.matchMedia({
       '(min-width: 960px)': function () {
@@ -53,7 +53,7 @@ function Projects() {
           },
         });
 
-        gsap.from(text, {
+        gsap.from(slogan, {
           delay: 1,
           duration: 1,
           opacity: 0,
@@ -76,9 +76,11 @@ function Projects() {
         Projects
         <div className="underline"></div>
       </h2>
-      <h4 className="projects-text" ref={textRef}>
+
+      <h4 className="projects-slogan" ref={sloganRef}>
         Pleasure in the job puts perfection in the work.
       </h4>
+
       <ul className="projects-gallery">
         {data.map((item, index) => (
           <Card key={index} item={item} index={index} />

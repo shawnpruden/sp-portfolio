@@ -1,16 +1,117 @@
+@use 'scss' as *;
+
+@mixin wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  color: $color-white;
+  text-align: center;
+
+  transition: 0.5s;
+}
+
 .card {
   position: relative;
 
   width: 80%;
 
   overflow: hidden;
-  background: #000;
 
-  border-radius: 5px;
   box-shadow: 5px 5px 10px #9e9e9e;
 
+  cursor: pointer;
+  transition: box-shadow 1s;
   &:hover {
-    cursor: pointer;
+    box-shadow: 5px 5px 10px $color-accent;
+  }
+
+  @include touch {
+    width: 100%;
+    overflow: visible;
+
+    box-shadow: 3px 3px 6px #9e9e9e;
+
+    &:hover {
+      box-shadow: 3px 3px 6px $color-accent;
+    }
+  }
+
+  @include hover {
+    &:hover &-image {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      opacity: 0.8;
+      background-color: #000;
+
+      transform-origin: bottom left;
+      transform: scale(1.5) translate(-35%, -35%) rotate(-32deg);
+      transition: 0.5s;
+    }
+
+    &:hover::before {
+      transform: scale(1.5) translate(-9%, 9%) rotate(-32deg);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      opacity: 0.8;
+      background-color: $color-accent;
+
+      transform-origin: top right;
+      transform: scale(1.5) translate(35%, 35%) rotate(-32deg);
+      transition: 0.5s;
+    }
+
+    &:hover::after {
+      transform: scale(1.5) translate(9%, -9%) rotate(-32deg);
+    }
+
+    &-wrapper-left {
+      @include wrapper;
+      opacity: 0;
+      transform: translate(-50%, -25%);
+    }
+
+    &:hover &-wrapper-left {
+      opacity: 1;
+      transform: translate(-20%, -25%);
+    }
+
+    &-wrapper-right {
+      @include wrapper;
+      opacity: 0;
+      transform: translate(50%, 35%);
+    }
+
+    &:hover &-wrapper-right {
+      opacity: 1;
+      transform: translate(15%, 35%);
+    }
   }
 
   &-image {
@@ -24,10 +125,21 @@
   &-content {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
 
     width: 100%;
 
-    transform: translateY(-50%);
+    @include touch {
+      top: -3rem;
+      text-align: center;
+
+      pointer-events: none;
+      transform: unset;
+    }
+
+    @include md {
+      top: -4rem;
+    }
   }
 
   &-title {
@@ -36,24 +148,41 @@
     font-size: 2.8rem;
     font-weight: 400;
     letter-spacing: 1px;
+
+    @include touch {
+      color: $color-gray;
+      font-size: 1.8rem;
+    }
+
+    @include md {
+      font-size: 2.2rem;
+    }
   }
 
   &-skills {
-    color: var(--color-purple);
+    color: $color-accent;
     font-size: 1rem;
 
     margin: 0.2rem 0 1rem;
+
+    @include touch {
+      display: none;
+    }
   }
 
   &-overview {
     width: 50%;
     margin: auto;
+
+    @include touch {
+      display: none;
+    }
   }
 
   &-buttons {
     button[position='left'] {
       margin-right: 2rem;
-      background-color: var(--color-yellow);
+      background-color: $color-yellow;
 
       svg {
         transform: scale(1.15);
@@ -61,7 +190,7 @@
     }
 
     button[position='right'] {
-      color: #fff;
+      color: $color-white;
       background-color: #000;
     }
 
@@ -106,11 +235,17 @@
 
       font-size: 2rem;
     }
+
+    @include touch {
+      display: none;
+    }
   }
 }
 
 .disabled {
   pointer-events: none;
-}
 
-@import './mobile';
+  @include touch {
+    pointer-events: unset;
+  }
+}

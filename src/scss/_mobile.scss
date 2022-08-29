@@ -1,0 +1,31 @@
+@use './variables' as *;
+
+@mixin xs {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: 501px) and (max-width: 1080px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 1081px) and (max-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (min-width: 1081px) {
+    @content;
+  }
+}
+
+@mixin touch {
+  @media (max-width: 1080px) {
+    @content;
+  }
+}

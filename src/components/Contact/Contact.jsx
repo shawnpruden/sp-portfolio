@@ -153,6 +153,7 @@ function Contact() {
       <p className="contact-text">
         Got any question or just want to talk with me?
       </p>
+
       <div className="contact-methods">
         <h4>
           <MdSmartphone /> (778)-227-8732
@@ -161,6 +162,7 @@ function Contact() {
           <MdOutlineEmail /> dev.shawn@yahoo.com
         </h4>
       </div>
+
       <p className="contact-text">Or send me a message.</p>
 
       <div className="contact-form-wrapper">
@@ -185,20 +187,25 @@ function Contact() {
               }
             })()}
           </h4>
+
           <input name="name" type="text" placeholder="Name" required />
+
           <input
             name="email"
             type="email"
             placeholder="Email Address"
             required
           />
+
           <input name="subject" type="text" placeholder="Subject" />
+
           <textarea
             name="message"
             placeholder="Your Message"
             rows="8"
             required
           ></textarea>
+
           <button className="contact-form-btn" type="submit">
             Send
             <FaTelegramPlane />

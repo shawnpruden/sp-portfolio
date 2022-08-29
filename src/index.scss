@@ -1,11 +1,8 @@
+@use './scss/' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-
-:root {
-  --color-purple: #ab47bc;
-  --color-yellow: #ffcb6b;
-}
 
 * {
   padding: 0;
@@ -18,15 +15,35 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
-  color: #333533;
+  font-family: $font-raleway;
+  color: $color-black;
+
   overflow-x: hidden;
 }
 
 .about,
-.projects,
 .contact {
   padding: 8rem;
+
+  @include xs {
+    padding: 3rem 1rem 6rem;
+  }
+
+  @include md {
+    padding: 5rem;
+  }
+}
+
+.projects {
+  padding: 8rem;
+
+  @include xs {
+    padding: 3rem 1rem 6rem;
+  }
+
+  @include md {
+    padding: 5rem 2rem;
+  }
 }
 
 h2.title {
@@ -36,10 +53,18 @@ h2.title {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
+
+  @include xs {
+    margin-top: 3rem;
+  }
+
+  @include md {
+    font-size: 3rem;
+  }
 }
 
 h3.subtitle {
-  color: #626262;
+  color: $color-gray;
 
   font-size: 1.8rem;
   font-weight: 400;
@@ -49,6 +74,14 @@ h3.subtitle {
   margin-bottom: 3rem;
 
   text-align: center;
+
+  @include xs {
+    padding-right: 1rem;
+  }
+
+  @include md {
+    font-size: 2.2rem;
+  }
 }
 
 img {
@@ -61,42 +94,7 @@ img {
   margin: 1rem auto;
 
   border-radius: 2px;
-  background-color: var(--color-yellow);
-}
-
-@media (max-width: 500px) {
-  .about,
-  .projects,
-  .contact {
-    padding: 3rem 1rem 6rem;
-  }
-
-  h2.title {
-    margin-top: 3rem;
-  }
-
-  h3.subtitle {
-    padding-right: 1rem;
-  }
-}
-
-@media (min-width: 501px) and (max-width: 1080px) {
-  .about,
-  .contact {
-    padding: 5rem;
-  }
-
-  .projects {
-    padding: 5rem 2rem;
-  }
-
-  h2.title {
-    font-size: 3rem;
-  }
-
-  h3.subtitle {
-    font-size: 2.2rem;
-  }
+  background-color: $color-yellow;
 }
 
 @media (min-width: 1081px) and (max-width: 1140px) {

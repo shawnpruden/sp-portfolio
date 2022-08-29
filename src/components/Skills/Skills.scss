@@ -1,3 +1,5 @@
+@use 'scss' as *;
+
 .skills {
   display: flex;
   flex-direction: column;
@@ -5,9 +7,30 @@
   padding-left: 2rem;
   border-left: #e9ecef 2px solid;
 
+  @include xs {
+    padding-left: 0;
+    margin-top: 6rem;
+
+    border-left: none;
+  }
+
+  @include md {
+    padding-left: 0;
+    margin-top: 8rem;
+
+    border-left: none;
+  }
+
   &-lists {
     height: 360px;
+
+    @include xs {
+      height: unset;
+      padding-right: 1rem;
+    }
+
+    @include md {
+      height: unset;
+    }
   }
 }
-
-@import 'mobile';

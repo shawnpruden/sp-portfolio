@@ -9,7 +9,6 @@ import './Card.scss';
 
 function Card({ item: { name, image, skills, url, repo }, index }) {
   const [isActive, setIsActive] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const leftCardRef = useRef();
   const rightCardRef = useRef();
@@ -58,7 +57,7 @@ function Card({ item: { name, image, skills, url, repo }, index }) {
               onEnter: () => {
                 setTimeout(() => {
                   setIsActive(true);
-                }, 1500);
+                }, 1000);
               },
 
               onLeaveBack: () => {
@@ -81,14 +80,8 @@ function Card({ item: { name, image, skills, url, repo }, index }) {
 
   return (
     <li
-      className={isActive ? 'card' : 'card disabled'}
+      className={`card ${!isActive && 'disabled'}`}
       ref={cardRef}
-      style={{
-        transition: isHovered && '1s',
-        boxShadow: isHovered && '5px 5px 10px var(--color-purple)',
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onClick={() => window.open(url, '_blank')}
     >
       <div className="card-image">

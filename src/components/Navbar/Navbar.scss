@@ -1,3 +1,5 @@
+@use 'scss' as *;
+
 .navbar {
   position: fixed;
   z-index: 15;
@@ -10,17 +12,50 @@
   align-items: center;
 
   height: 50px;
-  background-color: #202331;
-  border-bottom: var(--color-purple) 2px solid;
+  background-color: $color-dark;
+  border-bottom: $color-accent 2px solid;
 
   transform: translateY(-100%);
   transition: all 0.5s;
 
+  @include xs {
+    padding: 0 1rem;
+  }
+
   &-links {
     display: flex;
 
+    @include xs {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50%;
+      height: 150vh;
+      padding-top: 50px;
+
+      background-color: #202331;
+      flex-direction: column;
+
+      align-items: center;
+
+      transform: translateX(100%);
+      transition: all 0.5s ease-out;
+    }
+
+    li {
+      @include xs {
+        margin: 1.5rem 0;
+
+        transition: 0.5s;
+
+        opacity: 0;
+        transform: translateX(50px);
+      }
+    }
+
     a {
-      color: #fff;
+      color: $color-white;
       text-transform: uppercase;
       letter-spacing: 1px;
 
@@ -31,20 +66,12 @@
       cursor: pointer;
 
       &:hover {
-        color: var(--color-yellow);
+        color: $color-yellow;
       }
     }
-  }
 
-  &-burger {
-    display: none;
-
-    div {
-      width: 2rem;
-      height: 4px;
-      margin: 5px;
-      background-color: #fff;
-      transition: all 0.5s;
+    .highlighted {
+      color: $color-yellow;
     }
   }
 
@@ -52,9 +79,43 @@
     transform: translateY(0);
   }
 
-  .highlighted {
-    color: var(--color-yellow);
+  &-active {
+    @include xs {
+      transform: translateX(0);
+    }
+  }
+
+  &-burger {
+    display: none;
+
+    @include xs {
+      display: block;
+    }
+
+    li {
+      width: 2rem;
+      height: 4px;
+      margin: 5px;
+
+      background-color: $color-white;
+
+      transition: all 0.5s;
+    }
+  }
+
+  &-burger-active {
+    @include xs {
+      li:first-child {
+        transform: rotate(-45deg) translate(-5.2px, 7.5px);
+      }
+
+      li:nth-child(2) {
+        opacity: 0;
+      }
+
+      li:last-child {
+        transform: rotate(45deg) translate(-5.2px, -7.5px);
+      }
+    }
   }
 }
-
-@import 'mobile';

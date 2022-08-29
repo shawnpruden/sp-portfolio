@@ -1,20 +1,28 @@
+@use 'scss' as *;
+
 .contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  background-color: #292d3e;
+  background-color: $bg-contact;
 
   .title {
-    color: #fff;
+    color: $color-white;
     margin-bottom: 3rem;
   }
 
   &-text {
-    color: #89ddff;
+    color: $color-cyan;
     font-style: italic;
     letter-spacing: 1px;
+
+    @include xs {
+      font-size: 0.9rem;
+
+      white-space: nowrap;
+    }
   }
 
   &-methods {
@@ -22,7 +30,11 @@
 
     margin: 1rem 0;
 
-    color: #676e95;
+    color: $color-light;
+
+    @include xs {
+      flex-direction: column;
+    }
 
     h4 {
       display: flex;
@@ -30,7 +42,7 @@
 
       padding: 0.6rem 1rem;
       margin: 0.5rem;
-      background: #202331;
+      background-color: $color-dark;
 
       border-radius: 5px;
       border: transparent 2px solid;
@@ -38,9 +50,9 @@
       transition: all 0.5s ease-in-out;
 
       &:hover {
-        color: #eeffff;
-        border: var(--color-purple) 2px solid;
-        box-shadow: 0 0 5px var(--color-purple);
+        color: $color-white;
+        border: $color-accent 2px solid;
+        box-shadow: 0 0 5px $color-accent;
       }
 
       svg {
@@ -54,15 +66,20 @@
     &-wrapper {
       margin: 0.5rem 20rem;
 
+      @include xs {
+        width: 100%;
+        margin: 0;
+      }
+
       .notification {
         padding: 0.5rem;
         margin-bottom: 0.5rem;
 
-        color: #676e95;
+        color: $color-light;
 
         border-radius: 5px;
-        border: #676e95 1px solid;
-        box-shadow: 0 0 5px #676e95;
+        border: $color-light 1px solid;
+        box-shadow: 0 0 5px $color-light;
 
         transition: all 0.5s ease-in-out;
       }
@@ -71,15 +88,20 @@
         display: flex;
         flex-direction: column;
         min-width: 450px;
+
+        @include xs {
+          min-width: 0;
+          width: 100%;
+        }
       }
 
       input,
       textarea {
         font-size: 1rem;
         font-family: inherit;
-        color: #eeffff;
+        color: $color-white;
         outline: none;
-        background-color: #202331;
+        background-color: $color-dark;
 
         width: 100%;
         margin-bottom: 1rem;
@@ -90,30 +112,26 @@
         transition: all 0.5s;
 
         &:hover {
-          border: #676e95 2px solid;
+          border: $color-light 2px solid;
         }
 
         &:focus {
-          border: var(--color-purple) 2px solid;
-          box-shadow: 0 0 5px var(--color-purple);
+          border: $color-accent 2px solid;
+          box-shadow: 0 0 5px $color-accent;
         }
 
         &::placeholder {
-          color: #676e95;
+          color: $color-light;
         }
       }
 
       input:-webkit-autofill,
       textarea:-webkit-autofill {
-        border: #292d3e 2px solid;
-
-        &:hover {
-          border: #676e95 2px solid;
-        }
+        border: $color-light 2px solid;
 
         &:focus {
-          border: var(--color-purple) 2px solid;
-          box-shadow: 0 0 5px var(--color-purple);
+          border: $color-accent 2px solid;
+          box-shadow: 0 0 5px $color-accent;
         }
       }
     }
@@ -130,11 +148,11 @@
       font-size: 1.2rem;
       font-family: inherit;
       letter-spacing: 1px;
-      color: #eeffff;
+      color: $color-white;
 
       border: none;
       border-radius: 5px;
-      background-color: var(--color-purple);
+      background-color: $color-accent;
 
       opacity: 0.8;
       transition: all 0.5s ease-in-out;
@@ -149,5 +167,3 @@
     }
   }
 }
-
-@import 'mobile';

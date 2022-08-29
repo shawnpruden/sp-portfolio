@@ -7,9 +7,8 @@ export default function TypeWriter() {
   return (
     <div className="home-text-wrapper">
       <p>I'm</p>
-      <div
-        style={{ color: `${textColor}`, marginLeft: '1rem', fontWeight: 500 }}
-      >
+
+      <div style={{ color: textColor, marginLeft: '1rem', fontWeight: 500 }}>
         <Typewriter
           options={{
             loop: true,
@@ -28,6 +27,7 @@ export default function TypeWriter() {
           }}
         />
       </div>
+
       <p>.</p>
     </div>
   );

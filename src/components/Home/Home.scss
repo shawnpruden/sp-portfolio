@@ -1,3 +1,5 @@
+@use 'scss' as *;
+
 .home {
   display: flex;
   flex-direction: column;
@@ -19,27 +21,44 @@
     height: 100vh;
 
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba($color: #000, $alpha: 0.3);
   }
 
   * {
     z-index: 10;
   }
 
+  &-text-wrapper {
+    display: flex;
+
+    color: $color-white;
+    font-size: 3rem;
+
+    min-width: 540px;
+    padding-left: 1rem;
+
+    @include xs {
+      font-size: 2rem;
+
+      width: 100%;
+      min-width: 0;
+
+      padding-left: calc(50vw - 168px);
+
+      & > div {
+        margin-left: 0.5rem !important;
+      }
+    }
+  }
+
   &-text {
-    color: #fff;
+    color: $color-white;
     font-size: 3rem;
     font-weight: 400;
     letter-spacing: 1px;
 
-    &-wrapper {
-      display: flex;
-
-      color: #fff;
-      font-size: 3rem;
-
-      min-width: 540px;
-      padding-left: 1rem;
+    @include xs {
+      font-size: 2rem;
     }
   }
 
@@ -57,27 +76,30 @@
   &-btn {
     display: flex;
 
-    color: #fff;
+    color: $color-white;
     cursor: pointer;
 
     padding: 0.6rem 2.6rem;
-    border: #fff 2px solid;
+    border: $color-white 2px solid;
     border-radius: 5px;
     background-color: rgba($color: #000, $alpha: 0.3);
 
     // * transform backwards
-    // > 0.5s for hover over effects
 
+    // > 0.5s for hover over effects
     transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
       padding 0.8s ease-in-out, background-color 0.8s ease-in-out;
 
     &:hover {
-      border: var(--color-purple) 2px solid;
-      box-shadow: 0px 0px 10px var(--color-purple);
+      border: $color-accent 2px solid;
+      box-shadow: 0px 0px 10px $color-accent;
+    }
+
+    @include xs {
+      padding: 0.5rem 1.5rem;
     }
 
     // > 0.8s for transforming back slowly
-
     &-text {
       font-size: 1.2rem;
       margin-right: 0.5rem;
@@ -85,6 +107,10 @@
 
       transition: color 0.5s ease-in-out, font-size 0.8s ease-in-out,
         margin-right 0.8s ease-in-out, opacity 0.8s ease-in-out;
+
+      @include xs {
+        font-size: 1rem;
+      }
     }
 
     &-icon {
@@ -97,11 +123,11 @@
     }
 
     &:hover &-text {
-      color: var(--color-purple);
+      color: $color-accent;
     }
 
     &:hover &-icon {
-      color: var(--color-purple);
+      color: $color-accent;
     }
   }
 
@@ -121,13 +147,18 @@
         background-color 0.8s ease-in-out;
 
       &:hover {
-        border: #fff 2px solid;
+        border: $color-white 2px solid;
         box-shadow: none;
-        background-color: rgba($color: var(--color-purple), $alpha: 1);
+        background-color: rgba($color: $color-accent, $alpha: 1);
+      }
+
+      @include xs {
+        transform: translateX(calc(50vw - 30px)) translateY(calc(40vh - 30px));
+        padding: 0.5rem;
       }
 
       &-text {
-        font-size: 0rem;
+        font-size: 0;
         margin-right: 0;
         opacity: 0;
 
@@ -136,7 +167,6 @@
       }
 
       // > 0.8s for slow motion backwards
-
       &-icon {
         transform: rotate(180deg);
 
@@ -146,9 +176,11 @@
 
         transition: color 0.8s ease-in-out, transform 0.8s ease-in-out,
           font-size 0.8s ease-in-out;
+
+        @include xs {
+          font-size: 1.2rem;
+        }
       }
     }
   }
 }
-
-@import 'mobile';

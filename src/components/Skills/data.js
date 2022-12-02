@@ -1,4 +1,4 @@
-import { skills } from '../../assets';
+import { skills } from 'assets';
 
 export const primary = [
   {
@@ -44,10 +44,10 @@ export const data = [
     title: 'State Management',
     skills: ['Context API', 'Redux', 'Redux Toolkit'],
   },
-  { title: 'Styling', skills: ['Styled-Components', 'Material UI', 'GSAP'] },
+  { title: 'Styling', skills: ['Styled Components', 'Material UI', 'GSAP'] },
   { title: 'Routers', skills: ['React Router'] },
-  { title: 'API Calls', skills: ['Axios', 'RapidAPI Client'] },
   { title: 'Forms', skills: ['React Hook Form'] },
-  // { title: 'Testing', skills: [] },
+  { title: 'API Calls', skills: ['React Query', 'Axios', 'RapidAPI Client'] },
+  // { title: 'Testing', skills: ['Jest', 'React Testing Library'] },
   { title: 'Others', skills: ['Firebase'] },
 ];

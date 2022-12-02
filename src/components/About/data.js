@@ -1,4 +1,4 @@
-import { facts } from '../../assets';
+import { facts } from 'assets';
 
 export const data = [
   {

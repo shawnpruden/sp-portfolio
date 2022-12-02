@@ -1,31 +1,36 @@
 import React from 'react';
 
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+
 import './Footer.scss';
-import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 
 function Footer() {
   return (
     <section id="footer" className="footer">
       <ul className="footer-social">
         <li>
-          <a href="https://www.google.com/" target="_blank" rel="noreferrer">
-            <FaLinkedin />
+          <a
+            href="https://github.com/shawnpruden"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub />
           </a>
         </li>
+
         <li>
-          <a href="https://www.google.com/" target="_blank" rel="noreferrer">
-            <FaGithubSquare />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.google.com/" target="_blank" rel="noreferrer">
-            <FaTwitterSquare />
+          <a
+            href="https://www.linkedin.com/in/shawnpruden"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedinIn />
           </a>
         </li>
       </ul>
 
       <p className="footer-text">
-        &copy; {new Date().getFullYear()} <span>Shawn Pruden</span>
+        Copyright &copy; {new Date().getFullYear()} <em>Shawn Pruden</em>
       </p>
     </section>
   );

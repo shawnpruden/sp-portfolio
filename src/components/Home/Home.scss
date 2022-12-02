@@ -28,6 +28,17 @@
     z-index: 10;
   }
 
+  &-greeting {
+    color: $color-white;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    @include xs {
+      font-size: 2rem;
+    }
+  }
+
   &-text-wrapper {
     display: flex;
 
@@ -43,22 +54,17 @@
       width: 100%;
       min-width: 0;
 
-      padding-left: calc(50vw - 168px);
-
-      & > div {
-        margin-left: 0.5rem !important;
-      }
+      padding-left: calc(50vw - 172px);
     }
   }
 
-  &-text {
-    color: $color-white;
-    font-size: 3rem;
-    font-weight: 400;
-    letter-spacing: 1px;
+  &-typewriter {
+    margin-left: 0.8rem;
+
+    font-weight: 500;
 
     @include xs {
-      font-size: 2rem;
+      margin-left: 0.5rem;
     }
   }
 

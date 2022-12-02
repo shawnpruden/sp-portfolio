@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-import './Skills.scss';
-import ProgressBar from '../ProgressBar/ProgressBar';
-
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { primary, data } from './data';
+import './Skills.scss';
+import ProgressBar from './ProgressBar/ProgressBar';
 import Badge from '../Badge/Badge';
+import { primary, data } from './data';
 
 function Skills() {
   const [isActive, setIsActive] = useState(false);

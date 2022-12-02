@@ -44,7 +44,7 @@ function Home() {
 
   return (
     <section id="home" className="home">
-      <h1 className="home-text">Hello, and welcome!</h1>
+      <h1 className="home-greeting">Hello, and welcome!</h1>
 
       <TypeWriter />
 

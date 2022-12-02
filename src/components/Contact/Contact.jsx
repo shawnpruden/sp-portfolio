@@ -155,12 +155,15 @@ function Contact() {
       </p>
 
       <div className="contact-methods">
-        <h4>
-          <MdSmartphone /> (778)-227-8732
-        </h4>
-        <h4>
-          <MdOutlineEmail /> dev.shawn@yahoo.com
-        </h4>
+        <a href="tel:7782278732" target="_blank" rel="noreferrer">
+          <MdSmartphone />
+          (778)227-8732
+        </a>
+
+        <a href="mailto:echt.shawn@gmail.com" target="_blank" rel="noreferrer">
+          <MdOutlineEmail />
+          echt.shawn@gmail.com
+        </a>
       </div>
 
       <p className="contact-text">Or send me a message.</p>

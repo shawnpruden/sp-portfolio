@@ -7,7 +7,7 @@ import { RiGithubLine, RiShareForwardBoxLine } from 'react-icons/ri';
 
 import './Card.scss';
 
-function Card({ item: { name, image, skills, url, repo }, index }) {
+function Card({ item: { name, image, skills, overview, url, repo }, index }) {
   const [isActive, setIsActive] = useState(false);
 
   const leftCardRef = useRef();
@@ -93,10 +93,7 @@ function Card({ item: { name, image, skills, url, repo }, index }) {
           <h4 className="card-title">{name}</h4>
 
           <p className="card-skills">{skills.join(' | ')}</p>
-          <p className="card-overview">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            velit quo error! Architecto, officiis reiciendis?
-          </p>
+          <p className="card-overview">{overview}</p>
         </div>
       </div>
 

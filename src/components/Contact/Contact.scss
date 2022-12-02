@@ -30,15 +30,16 @@
 
     margin: 1rem 0;
 
-    color: $color-light;
-
     @include xs {
       flex-direction: column;
     }
 
-    h4 {
+    a {
       display: flex;
       align-items: center;
+
+      color: $color-light;
+      font-weight: 700;
 
       padding: 0.6rem 1rem;
       margin: 0.5rem;
